@@ -81,7 +81,7 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(project_dir, 'config', 'turtlebot3_world.yaml'),
+        default_value=os.path.join(project_dir, 'config', 'my_map.yaml'),
         description='Full path to map file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -105,7 +105,7 @@ def generate_launch_description():
 
     declare_rviz_config_file_cmd = DeclareLaunchArgument(
         'rviz_config_file',
-        default_value=os.path.join(project_dir, 'config', 'nav2_default_view_new.rviz'),
+        default_value=os.path.join(project_dir, 'rviz', 'nav2_default_view.rviz'),
         description='Full path to the RVIZ config file to use')
 
     declare_use_simulator_cmd = DeclareLaunchArgument(

@@ -1,6 +1,7 @@
+from setuptools import setup
 import os
 from glob import glob
-from setuptools import setup
+
 
 
 package_name = 'my_nav2_system'
@@ -19,11 +20,11 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),  
         (os.path.join('share', package_name, 'config'), glob('config/*.lua')),
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')), 
-        (os.path.join('share', package_name, 'config'), glob('config/*.xml')) 
+        (os.path.join('share', package_name, 'config'), glob('config/*.xml'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='lbelmar',
+    maintainer='lbelmar@alumno.upv.es',
     maintainer_email='lbelmar@alumno.upv.es',
     description='TODO: Package description',
     license='TODO: License declaration',
@@ -31,7 +32,7 @@ setup(
     entry_points={
         'console_scripts': [
             # Ejecuta el sistema de posicion inicial 
-           'initial_pose_pub = my_nav2_system.initial_pose_pub:main'
+            'initial_pose_pub = my_nav2_system.initial_pose_pub:main'
         ],
     },
 )

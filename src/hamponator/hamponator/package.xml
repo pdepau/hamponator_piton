@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hamponator</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="lbelmar@alumno.upv.es">lbelmar@alumno.upv.es</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <exec_depend>lidar_subscriber</exec_depend>
+    <exec_depend>my_nav2_system</exec_depend>
+    <exec_depend>provide_map</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

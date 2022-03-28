@@ -4,7 +4,7 @@ from glob import glob
 
 
 
-package_name = 'my_nav2_system'
+package_name = 'hamponator_nav2_system'
 
 setup(
     name=package_name,

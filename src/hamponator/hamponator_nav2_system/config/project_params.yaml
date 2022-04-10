@@ -25,9 +25,11 @@ amcl:
     pf_z: 0.99
     recovery_alpha_fast: 0.0
     recovery_alpha_slow: 0.0
+    set_initial_pose: True
+    initial_pose: {x: -2.0, y: -0.5, z: 0.0, yaw: 0.0}
+    save_pose_rate: 0.5
     resample_interval: 1
     robot_model_type: "differential"
-    save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true
     transform_tolerance: 1.0

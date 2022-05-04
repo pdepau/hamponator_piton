@@ -43,7 +43,7 @@
       </ode>
     </physics>
 
-    <model name="turtlebot3_world">
+    <model name="my_world">
       <static>1</static>
       <include>
         <uri>model://my_world</uri>

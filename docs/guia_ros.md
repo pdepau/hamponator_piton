@@ -50,7 +50,7 @@ Plugins -> Introspection -> Node Graph
 ros2 run rqt_gui rqt_gui
 ```
 
-## Simulación en Gazebo
+## Simulació enn Gazebo
 
 ### Abrir un mapa vacío en Gazebo
 
@@ -70,14 +70,18 @@ colcon build --packages-select [nombre]
 
 ## Mensajes ROS - Firebase
 
-## Mensaje del robot 
+### Mensaje del robot 
 
-type: ros (del robot), order (para el robot)
-
+- id: identificador para los mensajes, será el mismo a pares seguido de -app/-web (define el origen).
+- time: usado para sincronizar los mensajes y comprobar mensajes nuevos.
 ```
-{
-    type: "ros",
-    id: "dsiaghew98u43oifhe",
+"dsiaghew98u43oifhe-app" = {
+    time: 1235125153,
+    connection_data: {
+        connected: true,
+        ros: {[datos de conexión del robot]},
+        rosbridge_access: [ip del robot]"
+    },
     msg: {
         odom: [mensage odom],
         goalpose: [mensage goalpose],
@@ -87,9 +91,8 @@ type: ros (del robot), order (para el robot)
 ```
 
 ```
-{
-    type: "order",
-    id: "dsiaghew98u43oifhe",
+"dsiaghew98u43oifhe-web" = {
+    time: 14362373264,
     msg: {
         goalpose: [msg goalpose],
         etc...

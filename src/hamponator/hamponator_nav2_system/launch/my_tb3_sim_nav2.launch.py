@@ -30,7 +30,7 @@ def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('nav2_bringup')
     launch_dir = os.path.join(bringup_dir, 'launch')
-    project_dir = get_package_share_directory('my_nav2_system')
+    project_dir = get_package_share_directory('hamponator_nav2_system')
     turtlebot3_dir = get_package_share_directory('turtlebot3_gazebo')
     burger_dir = get_package_share_directory('turtlebot3_description')
     
@@ -130,7 +130,7 @@ def generate_launch_description():
 
     declare_world_cmd = DeclareLaunchArgument(
         'world',
-        default_value= os.path.join(get_package_share_directory('turtlebot3_gazebo'),'worlds/turtlebot3_worlds/burger.model'),
+        default_value= os.path.join(get_package_share_directory('my_world'),'world/burger.model'),
         description='Full path to world model file to load')
 
     # Specify the actions

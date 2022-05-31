@@ -206,7 +206,7 @@ def generate_launch_description():
             FindExecutable(name='ros2'),
             ' run ',
             "",
-            ' my_nav2_system ',
+            ' hamponator_nav2_system ',
             'initial_pose_pub '
         ]],
         shell=True
@@ -248,6 +248,6 @@ def generate_launch_description():
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
 
-    # os.system("ros2 run my_nav2_system initial_pose_pub")
+    # os.system("ros2 run hamponator_nav2_system initial_pose_pub")
 
     return ld

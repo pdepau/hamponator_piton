@@ -1,6 +1,6 @@
       <?xml version="1.0" ?>
 <sdf version='1.7'>
-     <model name='my_world'>
+     <model name='hamponator_world'>
       <link name='link_0'>
         <inertial>
           <mass>1</mass>

@@ -32,7 +32,7 @@ setup(
     entry_points={
         'console_scripts': [
             # Ejecuta el sistema de posicion inicial 
-            'initial_pose_pub = my_nav2_system.initial_pose_pub:main'
+            'initial_pose_pub = hamponator_nav2_system.initial_pose_pub:main'
         ],
     },
 )

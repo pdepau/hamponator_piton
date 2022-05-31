@@ -43,10 +43,10 @@
       </ode>
     </physics>
 
-    <model name="my_world">
+    <model name="hamponator_world">
       <static>1</static>
       <include>
-        <uri>model://my_world</uri>
+        <uri>model://hamponator_world</uri>
       </include>
     </model>
      

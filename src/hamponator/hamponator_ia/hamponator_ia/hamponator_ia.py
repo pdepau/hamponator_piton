@@ -34,23 +34,33 @@ class SimpleSubscriber(Node):
             self.listener_callback,
             QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)) 
         # prevent unused variable warning
-        self.subscriber     
+        self.subscriber    
+        self.subscriber2= self.create_subscription(
+            String,
+            '/resultado',
+            self.listener_callback2,
+            QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)) 
+        # prevent unused variable warning
+        self.subscriber2     
 
     def listener_callback(self, msg):
         #cv2.waitKey(0)
         print(msg)
         resultado = PublisherFoto.predict('src/hamponator/hamponator_ia/hamponator_ia/foto.jpg')
-        msg = String()
-        msg.data=str(resultado)
-        print(resultado)
-        self.publisher_.publish(msg)
+        mensaje = String()
+        mensaje.data=str(resultado)
+        print(mensaje)
+        self.publisher_.publish(mensaje)
 
+    def listener_callback2(self, msg):
+        print(msg)
+        
     def camera_callback(self,data):
 
         try:
             # Seleccionamos bgr8 porque es la codificacion de OpenCV por defecto
             cv_image = self.bridge_object.imgmsg_to_cv2(data, desired_encoding="bgr8")
-            cv2.imwrite('src/hamponator/hamponator_ia/hamponator_ia/foto.jpg', cv_image)
+            #cv2.imwrite('src/hamponator/hamponator_ia/hamponator_ia/foto.jpg', cv_image)
         except CvBridgeError as e:
             print(e)
         

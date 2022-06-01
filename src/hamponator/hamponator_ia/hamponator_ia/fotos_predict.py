@@ -6,7 +6,7 @@ from tensorflow import expand_dims
 import numpy
 import os
 import cv2
-
+import sys
 
 class PublisherFoto():
 

@@ -9,7 +9,7 @@ class Publisher(Node):
     def __init__(self):
         super().__init__('initial_pose_pub_node')
         self.publisher_ = self.create_publisher(PoseWithCovarianceStamped, 'initialpose', 1)
-        timer_period = 0.5  # seconds
+        timer_period = 10.0  # seconds
         self.i = 0.0
         self.timer_ = self.create_timer(timer_period, self.callback)
 

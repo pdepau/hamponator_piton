@@ -1,4 +1,6 @@
 from setuptools import setup
+import os #incluir
+from glob import glob #incluir
 
 package_name = 'hamponator_ia'
 
@@ -10,6 +12,8 @@ setup(
         ('share/ament_index/resource_index/packages',
         ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob('launch/*.launch.py')), #incluir
+        (os.path.join('lib', package_name), glob('hamponator_ia/fotos_predict.py')) #incluir
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,7 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hemponator_ia=hamponator_ia.fotos_predict:main'
+            'hamponator_ia=hamponator_ia.hamponator_ia:main'
         ],
     },
 )

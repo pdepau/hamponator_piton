@@ -9,6 +9,8 @@
   <!-- packages in my_project -->
   <exec_depend>hamponator_nav2_system</exec_depend>
   <exec_depend>hamponator_provide_map</exec_depend>
+  <exec_depend>hamponator_ia</exec_depend>
+  <exec_depend>hamponator_lidar_subscriber</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

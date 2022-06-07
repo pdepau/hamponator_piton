@@ -30,27 +30,3 @@ Al hacer un build hay que tener en cuenta que los archivos Setup.py y Package.xm
 ```
 colcon build --packages-select [nombre]
 ```
-## Mensajes ROS - Firebase
-Mensaje del robot
-type: ros (del robot), order (para el robot)
-```
-{
-    type: "ros",
-    id: "dsiaghew98u43oifhe",
-    msg: {
-        odom: [mensage odom],
-        goalpose: [mensage goalpose],
-        etc...
-    }
-}
-```
-```
-{
-    type: "order",
-    id: "dsiaghew98u43oifhe",
-    msg: {
-        goalpose: [msg goalpose],
-        etc...
-    }
-}
-```

@@ -9,17 +9,17 @@ class Publisher(Node):
     def __init__(self):
         super().__init__('initial_pose_pub_node')
         self.publisher_ = self.create_publisher(PoseWithCovarianceStamped, 'initialpose', 1)
-        timer_period = 2  # seconds
+        timer_period = 5  # seconds
         self.i = 0.0
         self.timer_ = self.create_timer(timer_period, self.callback)
 
     def callback(self):
         msg = PoseWithCovarianceStamped()
         msg.header.frame_id = 'map'
-        msg.pose.pose.position.x = 0.2
-        msg.pose.pose.position.y = 0.0
+        msg.pose.pose.position.x = 0.37
+        msg.pose.pose.position.y = 1.78
         msg.pose.pose.orientation.w = 1.0
-        self.get_logger().info('Publishing  Initial Position  \n X= 0.2 \n Y=0.0 \n W = 1.0 ')
+        self.get_logger().info('Publishing  Initial Position  \n X = 0.37 \n Y = 1.78 \n W = 1.0 ')
         self.publisher_.publish(msg)
 
 def main(args=None):

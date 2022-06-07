@@ -19,12 +19,15 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    ExecuteProcess,
+    IncludeLaunchDescription,
+)
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.substitutions import LaunchConfiguration, PythonExpression,FindExecutable
 from launch_ros.actions import Node
-
 
 def generate_launch_description():
     # Get the launch directory
@@ -105,7 +108,7 @@ def generate_launch_description():
 
     declare_rviz_config_file_cmd = DeclareLaunchArgument(
         'rviz_config_file',
-        default_value=os.path.join(project_dir, 'rviz', 'nav2_default_view.rviz'),
+        default_value=os.path.join(project_dir, 'rviz', 'nav2_default_view_new.rviz'),
         description='Full path to the RVIZ config file to use')
 
     declare_use_simulator_cmd = DeclareLaunchArgument(
@@ -130,7 +133,7 @@ def generate_launch_description():
 
     declare_world_cmd = DeclareLaunchArgument(
         'world',
-        default_value= os.path.join(get_package_share_directory('hamponator_world'),'world/burger.model'),
+        default_value= os.path.join(get_package_share_directory('my_world'),'world/burger.model'),
         description='Full path to world model file to load')
 
     # Specify the actions
@@ -176,8 +179,30 @@ def generate_launch_description():
                           'default_bt_xml_filename': default_bt_xml_filename,
                           'autostart': autostart}.items())
 
+    spawn_turtle = ExecuteProcess(
+        cmd=[[
+            FindExecutable(name='ros2'),
+            ' run ',
+            "",
+            ' hamponator_nav2_system ',
+            'initial_pose_pub '
+        ]],
+        shell=True
+    )
+
+    web_soket = ExecuteProcess(
+        cmd=[[
+            FindExecutable(name='ros2'),
+            ' launch ',
+            "",
+            ' rosbridge_server ',
+            'rosbridge_websocket_launch.xml '
+        ]],
+        shell=True
+    )
+
     # Create the launch description and populate
-    ld = LaunchDescription()
+    ld = LaunchDescription([spawn_turtle,web_soket])
 
     # Declare the launch options
     ld.add_action(declare_namespace_cmd)

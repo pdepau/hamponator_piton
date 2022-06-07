@@ -14,6 +14,7 @@ from visualization_msgs.msg import MarkerArray
 from std_msgs.msg import String
 # importar la librería de calidad del servicio para fijar las políticas de calidad
 from rclpy.qos import ReliabilityPolicy, QoSProfile
+import time
 
 class SimpleSubscriber(Node):
 
@@ -46,6 +47,7 @@ class SimpleSubscriber(Node):
     def listener_callback(self, msg):
         #cv2.waitKey(0)
         print(msg)
+        time.sleep(1)
         resultado = PublisherFoto.predict('src/hamponator/hamponator_ia/hamponator_ia/foto.jpg')
         mensaje = String()
         mensaje.data=str(resultado)

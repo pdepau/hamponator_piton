@@ -28,7 +28,7 @@ class PublisherFoto():
         #importante: especificar la ruta absoluta del modelo (o la relativa según salga por
         #pantalla)
         # TODO: hay que poner bien la ruta
-        model = load_model('/home/adrian/Documentos/hamponator_piton/src/hamponator/hamponator_ia/resource/modelo.h5')
+        model = load_model('/home/adrian/Documentos/turtlebot3_ws/src/hamponator/hamponator_ia/resource/modelo.h5')
 
         predictions = model.predict(img_array)
 
